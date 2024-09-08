@@ -38,4 +38,4 @@ let getValString = String(getVal)
 console.log(typeof(getValString));
 console.log(getValString);
 
-
+// new space added 
