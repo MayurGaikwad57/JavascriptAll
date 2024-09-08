@@ -53,3 +53,5 @@ console.log(`b is ${b} and x is ${x}`);
 // b = 3 
 // for x b is incrementing so x = 4
 // b = 4 as its incremeting 
+
+//The prefix increment is used when you need the incremented value immediately in the expression or operation you are performing.Understanding the prefix increment helps in scenarios where you want to ensure that the variable's value is updated before it is used in subsequent operations.
