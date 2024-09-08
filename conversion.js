@@ -39,3 +39,16 @@ console.log(typeof(getValString));
 console.log(getValString);
 
 // new space added 
+let a = 3
+const y = a++
+// postfix returns original value of a beafore incrementing 
+// hence y = 3 and a = 4 
+console.log(`a is ${a} and b is ${y}`);
+
+let b = 3
+const x = ++b;
+console.log(`b is ${b} and x is ${x}`);
+// execution flow 
+// b = 3 
+// for x b is incrementing so x = 4
+// b = 4 as its incremeting 
