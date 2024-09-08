@@ -43,6 +43,7 @@ let a = 3
 const y = a++
 // postfix returns original value of a beafore incrementing 
 // hence y = 3 and a = 4 
+//Postfix increment is often used in loops or cases where you need to keep the original value for some operation but still want to increment the variable for subsequent operations.
 console.log(`a is ${a} and b is ${y}`);
 
 let b = 3
