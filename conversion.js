@@ -55,3 +55,19 @@ console.log(`b is ${b} and x is ${x}`);
 // b = 4 as its incremeting 
 
 //The prefix increment is used when you need the incremented value immediately in the expression or operation you are performing.Understanding the prefix increment helps in scenarios where you want to ensure that the variable's value is updated before it is used in subsequent operations.
+// let age = 35
+// // console.log(typeof(age));
+
+// let ImprovedAge = String(age)
+// console.log(typeof(ImprovedAge));
+// console.log(ImprovedAge);
+
+
+let score = "Mayur"
+console.log(score)
+console.log(typeof(score))
+
+let NewScore = Number(score)
+console.log(typeof(NewScore));
+console.log(NewScore);
+
