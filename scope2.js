@@ -26,10 +26,22 @@ function one(num) {
 }
 
 /* Hoisting - how variables are declared , where they are kept , what is their execution context , how javascript reads varaibles , How a final tree is created where variables are displayed, functions are displayed etc  */
-addNum(5)   // In this way you cannot access the function the execution will give you error 
-//  ReferenceError: Cannot access 'addNum' before initialization
+// addNum(5)   // In this way you cannot access the function the execution will give you error 
+// //  ReferenceError: Cannot access 'addNum' before initialization
 
-const addNum = function two(num) {
-  return num+2;
+// const addNum = function two(num) {
+//   return num+2;
+// }
+// Closures in javascript 
+function countValues() {
+  let count = 0;
+  return function incrementValues() {
+       count++;
+       console.log(count)
+  }
 }
 
+let addClosure = countValues()
+console.log[addClosure(),addClosure(),addClosure()]
+
+// when you write console.log(addFunc()) --> By this what we are saying is first execute addFunc() function and then log its returned value 
