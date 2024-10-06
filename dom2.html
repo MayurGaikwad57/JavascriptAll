@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: white;">
+    <div class="parent">
+        <div class="day">Sunday</div>
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+    <script>
+        let getElement = document.querySelector('.parent')
+    //     console.log(getElement)
+    //     console.log(getElement.children)
+    //     // Output of these is HTMLCollection
+    //     console.log(getElement.children[1]) 
+    //     // output is the respective array element
+    //     // in our case it is monday
+    //    console.log(getElement.children[1].innerHTML)
+
+       // using normal for loop is possible on HTML Collections
+    //    for (let index = 0; index < getElement.children.length; index++) {
+    //    console.log(getElement.children[index].innerHTML)
+        
+    //    }
+    //    getElement.children[0].style.color = "red"
+    //    console.log("Nodes:",getElement.childNodes)
+       // childNodes will give us how many child nodes are present inside the parent node
+       // Note in html one line break is counted but after that no line breaks are counted browser doesn't render those line breaks 
+       // Each value has significance in dom structure including lineBreaks,comments,attributes etc a complex tree structure consists of all of these things 
+    //   console.log(getElement.firstElementChild)
+    //   console.log(getElement.lastElementChild)
+     
+    let runOverSiblings = document.querySelector('.day')
+    console.log(runOverSiblings.nextSibling)
+    // Output will be #text as text is its next sibling
+    console.log(runOverSiblings.nextElementSibling)
+    // output will be monday as it is next element of sunday 
+
+    </script>
+</body>
+</html>

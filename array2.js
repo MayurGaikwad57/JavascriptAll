@@ -1,6 +1,7 @@
 const politicians = ["Sharad", "Devandra", "Ajit"]
 const reports = ["Bhau", "kaka", "Anna"]
-
+const result_Politicians = reports.concat(politicians);
+console.log("The Array after concatination is",result_Politicians)
 // // let combine = politicians.concat(reports)
 // // console.log(combine)
 
@@ -13,7 +14,7 @@ const reports = ["Bhau", "kaka", "Anna"]
 // politicians.concat(reports)
 // console.log(politicians)
 
-// Spread Operator 
+// Spread Operator  
 
 // const best = [...politicians,...reports]
 // console.log(best)
