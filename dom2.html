@@ -30,6 +30,11 @@
     //    }
     //    getElement.children[0].style.color = "red"
     //    console.log("Nodes:",getElement.childNodes)
+
+    
+   // IMPORTANT POINT ->  Important discussion about NodeList. A nodelist is a collection of document nodes which includes text nodes , attribute nodes and element nodes. A line break is also counted in nodelist but only first one. All subsequent line breaks are ignored by browser
+
+
        // childNodes will give us how many child nodes are present inside the parent node
        // Note in html one line break is counted but after that no line breaks are counted browser doesn't render those line breaks 
        // Each value has significance in dom structure including lineBreaks,comments,attributes etc a complex tree structure consists of all of these things 
