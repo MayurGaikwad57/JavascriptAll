@@ -1,0 +1,61 @@
+<!-- Edit and  Remove elements from dom  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editing and Removing elements from DOM</title>
+</head>
+<body style="background-color: black; color: white;">
+    <ul class="ListElements">
+        <li>English</li>
+    </ul>
+    <script>
+        // adding element to the existing list 
+        // This approach is to be avoided when doing code for large projects as 
+        // by the use of innerHtml we have to traverse all the dom elements 
+        // which is not optimised appraoch 
+        let addElement = (newElement) => {
+            let list = document.createElement('li')
+           list.innerHTML = `${newElement}`
+           document.querySelector('.ListElements').appendChild(list)
+           
+        }
+        addElement("Marathi")
+        // New Approach with Optimization 
+        let optimizedDom = (listElement) => {
+           let liItem = document.createElement('li')
+           // 2 ways to create element 
+           // let addText = document.createTextNode('Telugu')
+           // document.querySelector('.ListElements').appendChild(addText)
+           liItem.appendChild(document.createTextNode(listElement))
+            document.querySelector('.ListElements').appendChild(liItem)
+        }
+            optimizedDom("Telugu")
+            optimizedDom("Kannada")
+     // Editing Html element 
+     // 2 ways 
+     // 1st Method 
+       const getElement = document.querySelector('li:nth-child(2)')
+       getElement.innerHTML = "Korean"
+       // 2nd method
+       // In these method we get the reference of the element and then 
+       // create a new element and replace it with old element
+       const newChange = document.querySelector('li:nth-child(3)')
+       const newListElement = document.createElement('li') 
+       newListElement.textContent = "Chinese"
+       newChange.replaceWith(newListElement)
+
+       // editing 
+       const editElement = document.querySelector('li:nth-child(4)')
+       editElement.outerHTML = '<li>Nepali</li>'
+       
+       // Removing element from dom 
+       const fourthChild = document.querySelector('li:nth-child(4)')
+       fourthChild.remove()
+       
+
+        // End of Dom basics and know as needed can be used 
+    </script>
+</body>
+</html>

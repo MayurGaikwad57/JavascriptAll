@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <style>
+        .bg-black{
+            background-color: black;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body class="bg-black">
+     <div>
+        <h1 id="firstHeading" class="newHeading">Hello <span style="display:none" >Display Removed</span> </h1>
+        <h2>Nice to Meet you</h2>
+        <h2>Great Win by you</h2>
+        <h2>Aston Martin</h2>
+        <p>Nice to meet you </p>
+        <input type="password" name="password" id="password">
+     </div>
+     <ul>
+        <li class="homelander">Home</li>
+        <li id="newcar" class="homelander">About</li>
+        <li class="homelander">Contact Us</li>
+     </ul>
+</body>
+</html>
+
+
+<!-- Important Concept In Node Selectors in Javascript 
+ 1) innerText -> displays only innerText  which is visisble on our web page so that we can manipulate only that text
+ 2) textContent -> display content which is even hidden but present with that id element 
+   like this text may not been displayed on our web page but present with that id 
+   // to select and manipulate such examples we have textContent
+3) innerHTML -> displays the present and hidden text from the element with html tags 
+// provides enhanced understanding of the elements text and html it carries
+-->
+
+<!--  2nd Important Concept with css selectors 
+  1) Query Selector 
+    1.1)document.querySelector('#id') -> to get the entire html element with matching id
+    1.2)document.queryselector('.className') -> to get the entire html matching with class Name 
+    1.3)document.queryselector('input[type=password]') -> to access html element whose input type is password 
+    1.4) If the html doesnt has id or class you can pass that element tag directly inside querySelector
+         document.querySelector('ul') -> targeting ul as it has no id or class
+  // Similarly you can use queryselector to target and get the dom elements 
+  // It is wholly and solley based on your css abilities how you target the elements
+  2) Important part querySelectorAll 
+    querySelectorAll returns Node List 
+    2.1) Imp Discussion 
+    2.2) a) Node list is not same as Array 
+         b) In nodeList Prototype you get only forEach() array method
+         const ulList = document.querySelectorAll('li') 
+         Note-> to access the dom and manipulate it you cannot do in same way as of querySelector and getElementById 
+         remember we are returning NodeList 
+         // follow the below method to access the dom 
+         ullist[0].style.backgroundColor = "green"  -> to select the first element from the list
+         // by changing the number from 0 to index of element you want to manipulate
+
+         ulList.forEach((l)=>{
+          l.style.color = "red" 
+           })
+
+-->
+<!-- 3rd Important concept in Javascript Node seelectors 
+ KEY POINT -> 1)When you target the DOM by ClassName then you get HTMLCollection 
+ which is similar to Array but not an Array 
+2) To apply the array methods you have to first convert it into an array 
+After that you can successfully apply our array methods to it 
+    example  -> lets say you want to color the elements of html to red 
+  steps-) 1.1) First we will target the dom element by className 
+NOTE -> In Html we have class and use that but behind the scenes the browser interprets it as a className 
+
+let getElement = document.getElementsByClassName('homeLander') 
+ getElement -> varaible that holds the dom element
+ getElementByClassName -> to target element based on className
+ ('homeLander') is the class name inside curly braces
+ conosle.log(getElement) 
+ // output HTMlCollection which includes all the targeted class elements 
+
+ //......Now we have to convert it into an array 
+ let holdConvertArray = Array.from(getElement)
+ // here dont put that HTMLCollection inside a string keep it as it is 
+ console.log(holdConvertArray) // outputs as an array
+
+ Now we will manipulate that dom 
+ let addColor = holdConvertArray.forEach((val)=>{
+      val.style.color = "red"
+ })
+
+ succesfully manipulated the DOM element by targeting it using a class and converting HTMLCollection to Array 
+
+-->

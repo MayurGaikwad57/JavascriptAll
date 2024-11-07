@@ -1,0 +1,37 @@
+<!-- Creating a new element in DOM and appending it in body -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I am the Best </title>
+ </head>
+ <body style="background-color: black; color:white">
+    
+
+
+    <script>
+        let addDiv = document.createElement('div')
+        console.log(addDiv)
+        addDiv.className = "parent"
+        addDiv.id = "imphead"
+        addDiv.setAttribute("title","newPage")
+        addDiv.style.backgroundColor = "green"
+        addDiv.style.color = "yellow"
+        addDiv.style.padding = "18px"
+        // setAttribute directly overwrites the value without bringing the text value 
+        // 1 round process
+        // addDiv.innerText = "Welcome to the New page"
+        // Note -> Setting InnerText first brings the value of the text if it is present and then overwrites with whatever text we have mentioned 
+        // 2 round process
+        let addInnerText = document.createTextNode("Welcome to the new page");
+        // createTextNode is a property through which we can create a new text node inside element 
+        addDiv.appendChild(addInnerText)
+        // addDiv.appendChild we are adding a our text node to the element that we have created
+        //
+
+        document.body.appendChild(addDiv)
+        
+    </script>
+ </body>
+ </html>
