@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Async Task</title>
+</head>
+<body>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button> 
+    <button id="change">Change Color</button>
+    <button id="display">Stop display</button>
+</body>
+<script>
+  //  function New() {
+  //    console.log("Printing Event on start")
+  //  }
+
+  // const stop =   setInterval(New,2000);
+  //  clearInterval(stop);
+
+  // starting interval after clicking the start button 
+   const work = document.querySelector('#start');
+   let intervalId;
+   work.addEventListener('click',()=>{
+    let callBack = () =>{
+      console.log("print the values")
+    }
+      intervalId = setInterval(callBack,2000)
+   })
+  // Stopping the started Interval
+  const stopWork = document.querySelector('#stop')
+  stopWork.addEventListener('click',()=>{
+    clearInterval(intervalId)
+  })
+
+  // setInterval and StopInterval Questions
+  // after click change the background color of the body 
+  const color = document.querySelector('#change')
+  function colors () {
+    let color =  Math.random() * 10;
+    return color
+  }
+  let interval;
+  color.addEventListener('click',()=>{
+    interval = setInterval(()=>{
+  
+    },1000)
+  })
+
+ let wait = document.querySelector('#display') 
+ wait.addEventListener('click',()=>{
+    clearInterval(interval);
+ })
+
+
+
+</script>
+</html>

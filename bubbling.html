@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+</head>
+<body>
+    <div id="container">
+        <input type="text" placeholder="name" id="input">
+    </div>
+    <script>
+    document.getElementById('container').addEventListener('click',(event)=>{
+       console.log("The Container event triggered")
+    })
+    document.getElementById('input').addEventListener('click',(event)=>{
+         event.stopPropagation(); // stops our bubbling of event 
+        console.log("the input element event triggered")
+    })
+    </script>
+</body>
+</html>

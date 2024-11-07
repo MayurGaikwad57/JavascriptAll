@@ -15,3 +15,14 @@ console.log(accountId)
 console.log(email)
 console.log(accPassword)
 console.table([accountId,accPassword,email,userState,userPinCode])
+
+// hoisting with respect to the varaibles var, let and const 
+
+console.log(a)
+var a = 20;
+// the output here is undefined meaning we are trying to access the variable before it is 
+// initialized 
+
+console.log(b)
+let b = 20;
+// reference erpr as we cannot access b before initilaization

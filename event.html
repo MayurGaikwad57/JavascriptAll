@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="showAlert">Click</button>
+    <button id="submit">submit</button> <br>
+    <div id="box1"
+        style="background-color: rgb(59, 172, 221);color: rgb(12, 12, 12);display: inline-block; padding: 20px; margin-top:15px">
+        box 1
+    </div>
+    <div id="box2"
+        style="background-color: rgb(158, 222, 48);color: rgb(16, 15, 15);display: inline-block; padding: 20px; margin-top:15px">
+        box 2
+    </div>
+    <ul id="parent">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li id="list 3">Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ul>
+    <!-- Handling Multiple Events -->
+    <button id="manage">Handle</button>
+    <script>
+        //         let element = document.getElementById('showAlert')
+        //         element.addEventListener("click",()=>{
+        //              alert("Event is Successfully Listened")
+        //         },{once:true})
+        // // In event Object we get 2 things 
+        // // environment events 
+        // // browser events
+        //     document.getElementById('submit').addEventListener('click'
+        //         , (e) => {
+        //           console.log(e)
+        //         } , false
+        //     )
+        // // Handling multiple javascript events and using event.type property
+        // const handleEvent = document.getElementById('manage')
+
+        //   let manageEvent = (event) => {
+        //      if(event.type === 'click') {
+        //         console.log("Click Event Triggered")
+        //         console.log("Event Type:",event.type)
+        //      } 
+        //      else if(event.type === 'mouseover') {
+        //         console.log("Mouseover Event Triggered")
+        //         console.log("Event Type:",event.type)
+        //      }
+        //      else {
+        //         console.log("No event triggered")
+        //      }
+        // }
+        // handleEvent.addEventListener('click',manageEvent)
+        // handleEvent.addEventListener('mouseover',manageEvent)
+
+        // // target in javascript helps us to identify which dom element has triggered the event 
+        // document.getElementById('parent').addEventListener('click',(event)=>{
+        //      const aim = event.target;
+        //      if(aim.tagName === "LI") {
+        //         console.log(`The Element Triggering the event is ${aim.tagName} and id is ${aim.id}`)
+        //      }
+        // })
+        // relatedTarget is used as targetElement is depreciated 
+        // mostly used for the mouse events 
+        // mouseover , mouseout , mouseenter, mouseleave
+        /*  
+        The relatedTarget property in JavaScript is a standardized and widely supported property that provides a reference to the secondary element involved in certain mouse events,
+         specifically mouseover, mouseout, mouseenter, and mouseleave events.
+         It indicates where the mouse pointer is coming from (relatedTarget in mouseover) or going to (relatedTarget in mouseout). */
+        // mouseover -> tells us from which element the mouse has come to this element where the 
+        // event is defined 
+        // mouseout -> tells us from the currentElement where the event is present to where the mouse is heading 
+        // mouseenter -> this is similar to mouseover but the difference is that the mouseenter 
+        // event doesn't bubble 
+        // mouseleave -> similair to mouseout event , tells us where the mouse is heading after leaving 
+        // only thing is it doesn't bubble
+        document.getElementById('box1').addEventListener('mouseover', (event) => {
+            if (event.relatedTarget) {
+                console.log(`the element from which the mouse is coming to this event is ${event.relatedTarget.tagName || event.relatedTarget.id}`)
+            } else {
+                console.log("the mouse is coming from the document")
+            }
+        })
+    </script>
+</body>
+
+</html>
