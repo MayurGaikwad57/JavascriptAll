@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async JS</title>
+</head>
+<body>
+    <h1>Hello You are Nice</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    function change() {
+        const textChange = document.querySelector('h1')
+        textChange.innerHTML = "Mayur is the legend"
+    }
+  const setTime =  setTimeout(change,2000);
+  document.querySelector('#stop').addEventListener('click',()=>{
+    clearTimeout(setTime)
+    console.log("Stopped")
+  })
+  
+
+
+</script>
+</html>

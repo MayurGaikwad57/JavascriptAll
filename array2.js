@@ -24,18 +24,22 @@ console.log("The Array after concatination is",result_Politicians)
 // flat method return all the subarray elements present inside main array as seperate 
 // It takes paramater as depth -> we have to mention depth 
 
-console.log(Array.from("Mayur"))
-console.log(Array.isArray("politicians"))
-console.log(Array.isArray("reports"))
+// console.log(Array.from("Mayur"))
+// console.log(Array.isArray("politicians"))
+// console.log(Array.isArray("reports"))
 
-console.log(Array.from({ name: "Virat" }))
+// console.log(Array.from({ name: "Virat" }))
 // Interesting result
 // It actually gives this result
 // because it gets confused as to for what it should make array for key or string
 
 
-let obj1 = 200
-let obj2 = 400
-let obj3 = 600
-// of is used to create new array from a set of elements 
-console.log(Array.of(obj1,obj2,obj3))
+// let obj1 = 200
+// let obj2 = 400
+// let obj3 = 600
+// // of is used to create new array from a set of elements 
+// console.log(Array.of(obj1,obj2,obj3))
+
+let arrayElements = "10,20,30";
+let newArrayList = arrayElements.split(',')
+console.log(newArrayList)
