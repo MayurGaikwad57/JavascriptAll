@@ -3,7 +3,7 @@
 //     console.log(num1+num2);
 //  }
 // addTwoNumber -> this a reference to a function 
-// addTwoNumber() -> this execution of function
+// addTwoNumber() -> this is execution of function
 // addTwoNumber(3,5)
 function addTwoNumber(num1 , num2) {
     // addTwoNumber(num1,num2) - > num1 and num2 are parameters of the function
@@ -34,3 +34,15 @@ const name = loginUser("Daya");  // Daya will overwrite the userName Mayur
 // if nothing is passsed then Mayur just logged in will print 
 
 console.log(name);
+
+
+let storeValue = function(a,b) {
+      return a+b;  // Anothere Way of declaring a function
+}
+let result1 = storeValue(10,5)
+console.log(result1)
+
+function funcAdd(a,b) {
+    return a+b;
+}
+console.log(funcAdd(10,20))

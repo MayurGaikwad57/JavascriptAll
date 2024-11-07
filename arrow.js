@@ -1,13 +1,20 @@
 const user = {
     username:"Mayur",
     Id : " 111 ",
-    welcomeMessage:function() {
+    welcomeMessage : function () {
       console.log(`${this.username} , Welcome to show`);
       console.log(this)
     }
 
 }
+user.welcomeMessage()
 
+const userBhai = () => {
+  let name="System";
+  console.log(this.username)
+  console.log(this)
+}
+userBhai()
 // user.welcomeMessage();
 // user.username = " Sunny "
 // user.welcomeMessage();
