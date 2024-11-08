@@ -17,3 +17,11 @@ console.log(performOperations)
   3) now we have 3rd method filter which returns values from array larger than 40 this operation is performed on the array returned by the 2nd map so result will be 
   [41,51,61,71,81]
 */
+
+let arr = [10,20,30,40,50]
+let mapping = arr.map((num)=>num*10).map((num)=>num+1).filter((num)=> {
+  if(num>140) return num;
+  }).reduce((acc,val)=>{
+    return acc+val;
+  },0)
+console.log(mapping)
