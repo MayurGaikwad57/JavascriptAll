@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start and Stop Colors</title>
+</head>
+<body>
+    <h1 id="heading">Hello , you are  a legend</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const getHeading = document.querySelector("#heading")
+    const startButton = document.getElementById("start");
+    const stopButton = document.getElementById("stop");
+    let intervalId = null;
+    
+    const printMessage = () => {
+        alert("Hi Mayur")
+    }
+
+   startButton.addEventListener('click',()=>{
+    if(!intervalId) {
+       intervalId = setInterval(printMessage,3000);
+      }
+   })
+   stopButton.addEventListener('click',()=>{
+      if(intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+   })
+
+   let nameFunction = () => {
+     getHeading.innerHTML = "Mayur is the best";
+   }
+   let setTime = setTimeout(nameFunction,2000)
+   stopButton.addEventListener('click',()=>{
+    clearTimeout(setTime)
+    getHeading.innerHTML = "Hello , you are  a legend"
+    console.log("time cleared")
+   }) 
+</script>
+</html>

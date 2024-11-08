@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>colors displaying</title>
+    <style>
+        /* Body styling with smooth transition */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            transition: background-color 0.8s ease; /* Smooth color transition */
+        }
+
+        /* Button styling */
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 40px;
+            margin: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            background-color: #f9f9ff;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Button hover effects */
+        button:hover {
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+            transform: scale(1.05);
+        }
+
+        /* Specific styles for start and stop buttons */
+        #start {
+            color: #007b00;
+            border: 2px solid #007b00;
+        }
+
+        #stop {
+            color: #b30000;
+            border: 2px solid #b30000;
+        }
+
+        /* Adding icon-like animations for buttons */
+        button::before {
+            content: '▶ ';
+            font-size: 20px;
+            margin-right: 10px;
+            transition: transform 0.3s;
+        }
+        #stop::before {
+            content: '■ ';
+        }
+        
+        /* Responsive layout for smaller screens */
+        @media (max-width: 600px) {
+            button {
+                width: 80%;
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button id="start">Start Colors</button>
+    <button id="stop">Stop colors</button>
+</body>
+<script>
+    const startColor = document.querySelector("#start")
+    const stopColors = document.querySelector("#stop")
+    let timeId = null;
+    function generateRandomColor() {
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+     function colors() {
+        document.body.style.backgroundColor = generateRandomColor();
+     }
+     startColor.addEventListener('click',()=>{
+         if(!timeId) {
+            timeId = setInterval(colors,1000)
+         }
+     })
+     stopColors.addEventListener('click',()=>{
+        if(timeId) {
+            clearInterval(timeId)
+            timeId = null;
+        }
+     })
+     window.addEventListener('unload',()=>{
+        if(timeId) {
+            clearInterval(timeId);
+        }
+     })
+</script>
+</html>
