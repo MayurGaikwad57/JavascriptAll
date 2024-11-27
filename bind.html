@@ -1,0 +1,45 @@
+<!--  BIND IN JAVASCRIPT
+The bind method in JavaScript is used to explicitly set the this context for a function,
+ensuring it refers to the intended object regardless of how the function is called.
+It was introduced to solve issues related to this in JavaScript,
+especially in scenarios involving callbacks, event listeners, and object-oriented programming.
+Here's a detailed explanation, including the history, evolution, and modern usage, along with an analysis of your provided example.
+
+Historical Context of this
+In JavaScript, the value of this is determined by how a function is called:
+In a global context, this refers to the global object (window in browsers).
+In a method call on an object, this refers to the object invoking the method.
+In event listeners or callbacks, this can change depending on the calling context, often leading to confusion.
+The introduction of the bind method aimed to address these issues by providing a way to set this explicitly.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Never Out Of Fight</title>
+</head>
+<body>
+    <button>Click Me</button>
+</body>
+<script>
+    class React {
+        constructor(){
+            this.name = "React",
+            this.server = 'https://localhost:3000'
+            document
+                  .querySelector('button')
+                  .addEventListener('click',this.handleClick.bind(this)) 
+        // Here Arrow functions can also be used instead of bind as arrow function 
+        // dont have their own this
+        }
+        handleClick() {
+            console.log("Button Clicked")
+            console.log(this.server)
+            console.log(this)
+        }
+    }
+    const getYou = new React();
+</script>
+</html>
