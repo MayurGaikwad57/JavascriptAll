@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black;">
+    <button id="orange">Orange</button>
+    <button id="blue">blue</button>
+</body>
+</html>
+<script>
+// Lexical Scoping in Javascript 
+function king() {
+    let name = "Elvish"
+    console.log(king1)
+    // parent functions properties , or varaibles can be accessed by child functions 
+    // in Our case name property of king() is avaiable to function prince()
+    function prince() {
+        let king1 = "jon"
+        console.log(name)
+        // function brother1() {
+        //     console.log(name)
+        //     // here the subchild function brother1() can also  access the main 
+        //     // name property of main parent function , but viceversa is not true
+         // the inner function can access the outer functions variables 
+         // this is called lexical scoping 
+         // brother1()
+        // }
+        // function prince2() {
+        //     console.log(name)
+        //     console.log(king)
+        // }
+    }
+
+    function prince2() {
+        let dean = "Badass"
+        console.log(name)
+        console.log(king)
+// Here you can see two brother functions also cannot share any properties with each
+// other inside main parent function 
+// both the functions are present inside king() function 
+// only both functions can access and use properties from the parent function 
+// but the properties defined inside both functions individually cannot be accessed 
+// between those two function
+    }
+
+    prince()
+    prince2()
+}
+
+king()
+</script>
+<script>
+    // Concept of closure 
+/*  Javascript behind the scenes work
+store values in memory 
+return those values when requested , also all of its working is through 
+single thread only 
+#### Closures in Javascript 
+1) When we are actually returning a function which is inside anothere function 
+lets say main() parent and sub() as child 
+so when we return reference of sub() i.e child function and execute the main function
+according to the thoery the main() function be removed from stack after execution
+But , when the main parent is getting executed the child functions reference is 
+also returned so when this child function is stored in the memory 
+it's lexical scope i.e main function is also stored in the memory as a result 
+of which in console you can see output as Mayur
+
+SO , IN SHORT WHEN YOU RETURN A FUNCTION , NOT ONLY THAT FUNCTION IS RETURNED 
+BUT ITS LEXICAL SCOPE IS ALSO RETURNED 
+
+*/
+    function main() {
+        let name = "Mayur"
+        function sub() {
+            console.log(name)
+        }
+        return sub;
+    }
+    const myFunc = main()
+    myFunc();
+</script>
+<script>
+    // Practical Example of Lexical Scoping and closure 
+  function color(colors) {
+   return function getColors() {
+    // Here getColors() has access of all the properties of 
+    // function color so you can see we have imjected 
+    // variable colors and access to colors is simply because of 
+    // concept of lexical scope 
+    document.body.style.backgroundColor = `${colors}`
+}
+  }
+  document.getElementById('orange').onclick = color('orange')
+  /* Here OnClick expects a function in our case color() is a function 
+  but if we directly execute a method without returning from it 
+  we wont get expected results 
+  why ?? 
+  1) whenever you use any event such as onClick() it expects a function 
+  from you to perform the intended operation as needed
+  but instead of returning a value from the function you are simply
+  executing the function directly 
+  ex->  function color(colors) {
+    document.body.style.backgroundColor = `${colors}`
+  }  
+     document.getElementById('orange').onclick = color('orange')    
+     wont work because you are not retruning anything , just plainly executing 
+     the function which is wrong 
+     
+     so what we do is create anothere fucntion inside color and return the function 
+     which will indeed return us whatever actions that function is performing
+    
+     function color(colors) {
+         return function() {
+          document.body.style.backgroundColor = `${colors}`
+          and how we have access of this colors because of lexical scoping 
+          i.e child functions can access properties from the parent function
+         }
+      }  
+
+  */
+  document.getElementById('blue').onclick = color('blue')
+</script>
