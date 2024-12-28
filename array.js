@@ -72,4 +72,57 @@ let arn1 = [10,20,30,40,50,60]
 console.log("B",arn1.splice(1,5))  // last value is included in splice 
 console.log("A->Original Value",arn1) // original array size is reduced
 
+// find , some methods in array 
+/* .................................Find Method................................
+The find method is a built-in JavaScript array method that allows you to search for an element in an array based on a condition. It returns the first element in the array that satisfies the provided condition (callback function). If no elements satisfy the condition, it returns undefined.
+*/
+const numbers = [1,2,5,10,12,24,23];
+const foundMatch = numbers.find((value)=>{
+   return value>10;
+   // find method returns the first matching element
+}) 
 
+console.log(foundMatch);
+
+const objectUsers =[
+    {id:1,name:"Mayur"},
+    {id:1,name:"king"}, // this will not be returned as find returns first matching element
+    {id:2,name:"Amit"},
+    {id:3,name:"Elvish"}
+]
+
+const getName = objectUsers.find((value)=>{
+    return value.id === 1;
+})
+
+// find which user is a admin 
+// we will use the find method if we just want to know that admin exists , but if you want total number of admins then use filter method
+const users = [
+    { id: 1, name: 'Alice', isAdmin: false },
+    { id: 2, name: 'Bob', isAdmin: true },
+    { id: 3, name: 'Charlie', isAdmin: false },
+  ];
+
+  const findAdmin = users.find((value)=>{
+    if(value.isAdmin === true){
+        return value.name
+    }
+    return null;
+})
+  console.log("The Admin Is",findAdmin)
+
+console.log(getName);
+
+// chaining of arrays 
+const num1 = [10,20,30,40,50,60];
+const chaining = num1.map(value=> value + 1).find(value=> value> 20);
+console.log(chaining);
+
+
+// some method in array 
+// The some method in JavaScript is a built-in array method that checks if at least one element in the array satisfies a given condition (test) implemented by the provided callback function. It returns a boolean value: true if any element passes the test, and false otherwise.
+const numMultiple = [1,2,3,4,5];
+const existElement = numMultiple.some(value=>value>4)
+// here as sooon as the num > 4 is found the function returns true
+// further processing of array is stopped 
+console.log(existElement) // output as true 

@@ -59,8 +59,8 @@ let newCartProducts = addItemPrice.reduce((acc,item)=>{
 console.log(newCartProducts)// Reduce Property in Javascript 
 // Mostly used method 
 // One application is in shopping cart where you want to add price for all the items
-let arr = [1,2,3,4,5,6,7,8,9]
-let useReduce = arr.reduce((acc,currVal)=>{
+let array = [1,2,3,4,5,6,7,8,9]
+let useReduce = array.reduce((acc,currVal)=>{
       console.log(`Acc is :${acc} and currVal is :${currVal}`)
       let addValue = acc + currVal
       return addValue;
