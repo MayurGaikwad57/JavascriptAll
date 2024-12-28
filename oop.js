@@ -4,10 +4,12 @@ function createUser(name,price) {
 }
 createUser.prototype.increment = function() {
     this.price;
+    console.log(this.price)
 }
 
 const user1 = new createUser("Mayur",50)
 console.log(user1)
+user1.increment();
 
 /* 
 What does the new keyword do?
