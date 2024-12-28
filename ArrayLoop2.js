@@ -43,11 +43,13 @@ console.log(filteredValues)
 
 // Map method in arrays 
 // everything is returned in maps so be careful how you use them
+// original array remains unmodified , new array is returned here
 let num1 = [1,2,3,4,5,67,8]
 let returnValue = num1.map((num) => {
     return num+10
-})
-console.log(returnValue)
+}) 
+console.log(returnValue) // new array will be returned 
+console.log("The original array",num1) // stays as it is 
 
 let newArray = []
   let applyForEach =  num1.forEach((num)=>{

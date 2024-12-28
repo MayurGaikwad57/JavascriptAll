@@ -11,6 +11,7 @@ let myFilter = myValues.filter((num)=> {
      }
 })
 console.log(myFilter)
+console.log("Original Array",myValues) // original array remains unmodified 
 
 let copyValues = []
 let copiedValues = myValues.filter((val) => {
