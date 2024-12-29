@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+       body {
+      background: linear-gradient(135deg, #6477e1, #7eecc9); /* Vibrant body gradient */
+      color: #ffffff;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+       align-items: center;
+       height: 100vh;
+       margin: 0;
+}
+
+        .calculator {
+            border: 2px solid rgb(69, 65, 65);
+            border-radius: 20px;
+            padding: 20px;
+            background: #f1f1f1; /* Light neutral gray */
+            box-shadow: 0 5px 10px rgba(255, 0, 0, 0.2);
+            /* Soft shadow for depth */
+        }
+
+        .btn {
+            height: 50px;
+            width: 50px;
+            border-radius: 50px;
+            padding: 5px;
+            font-size: 20px;
+            border: none;
+            margin: 4px;
+            transition: all 0.3s ease;
+            /* Smooth hover effect */
+            background-color: #d1dbe4;
+        }
+
+        .screen {
+            height: 70px;
+            width:auto;
+            max-width: 100%; /* Prevent overflow */
+  padding: 0 10px; /* Add padding for better appearance */
+  box-sizing: border-box; /* Include padding in width calculation */
+            background-color: #ffffea;
+            text-align: end;
+            display: flex;
+            align-items: end;
+            justify-content: end;
+            border: 2px solid green;
+            font-size: 25px;
+        }
+
+        #clear {
+            /* display: flex;
+            flex-wrap: wrap; */
+            font-size: 13px;
+            /* justify-content: center;
+            margin:2px; */
+        }
+
+        .btn:hover {
+            background-color: #7e8fb5;
+        }
+
+        .btn:active {
+            background-color: #3e5ff3 !important;
+        }
+
+        #clear:hover {
+            background-color: #7e8fb5;
+            /* Bright red */
+            color: #fff;
+        }
+        #clear:active{
+            background-color: rgb(241, 75, 75) !important;
+        }
+
+        #equal:hover {
+            background-color: #7e8fb5;
+            /* Bright green */
+            color: #fff;
+        }
+        #equal:active{
+            background-color: green !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 col-lg-4 m-auto col-sm-4">
+                <div class="calculator">
+                    <!-- Screen -->
+                    <div class="row screen col-md-6 rounded text-dark p-0 m-auto mb-3">
+                        3
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <button class="btn btn-light col-3">7</button>
+                        <button class="btn btn-light col-3">8</button>
+                        <button class="btn btn-light col-3">9</button>
+                        <button class="btn btn-light col-3">+</button>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <button class="btn btn-light col-3">4</button>
+                        <button class="btn btn-light col-3">5</button>
+                        <button class="btn btn-light col-3">6</button>
+                        <button class="btn btn-light col-3">-</button>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <button class="btn btn-light col-3">1</button>
+                        <button class="btn btn-light col-3">2</button>
+                        <button class="btn btn-light col-3">3</button>
+                        <button class="btn btn-light col-3">*</button>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <button class="btn btn-light col-3">0</button>
+                        <button id="equal" class="btn btn-light col-3">=</button>
+                        <button id="clear" class="btn btn-light col-3 text-center">CLEAR</button>
+                        <button class="btn btn-light col-3">/</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
