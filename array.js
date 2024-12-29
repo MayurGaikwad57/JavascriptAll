@@ -111,6 +111,37 @@ const users = [
 })
   console.log("The Admin Is",findAdmin)
 
+  // Example to be practised here 
+  // when we want to store the element which matched the id in an array  
+
+  const dropdownList = [
+    { id: 1, name: "Admin", displayName: "Administrator" },
+    { id: 2, name: "User", displayName: "Standard User" },
+    { id: 3, name: "Manager", displayName: "Project Manager" },
+    { id: 4, name: "Guest", displayName: "Guest User" },
+  ];
+
+  // Selected roles in selectedItems
+const selectedItems = [
+  { id: 2 },
+  { id: 4 },
+];
+
+const dropDownListApi = [];
+
+selectedItems.forEach((items)=>{
+  const matchedElement = dropdownList.find(val => val.id === items.id);
+  if(matchedElement) {
+    dropDownListApi.push({
+      id: matchedElement.id,
+      name:matchedElement.name,
+      displayName:matchedElement.displayName
+    })
+  }
+})
+
+console.log("Your Selected Roles Are",dropDownListApi);
+
 console.log(getName);
 
 // chaining of arrays 
