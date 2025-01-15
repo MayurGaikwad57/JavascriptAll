@@ -1,4 +1,5 @@
 // // let arr1 = [1, 2, 3, 4, 5]
+let dropDownListApi = [];
 // // let arr2 = ["Mayur", "Hitesh", "Gaurav"]
 
 // // console.log(arr1)
@@ -64,52 +65,52 @@
 // console.log("Original Array after Slicing",arr3)
 
 
-let myarr = [1,2,3,45,6,77,878,88]
-console.log("B",myarr.slice(1,5)) // last value is also not included in slice 
-console.log("A",myarr) // Original array size is not reduced using slice
+// let myarr = [1,2,3,45,6,77,878,88]
+// console.log("B",myarr.slice(1,5)) // last value is also not included in slice 
+// console.log("A",myarr) // Original array size is not reduced using slice
 
-let arn1 = [10,20,30,40,50,60]
-console.log("B",arn1.splice(1,5))  // last value is included in splice 
-console.log("A->Original Value",arn1) // original array size is reduced
+// let arn1 = [10,20,30,40,50,60]
+// console.log("B",arn1.splice(1,5))  // last value is included in splice 
+// console.log("A->Original Value",arn1) // original array size is reduced
 
-// find , some methods in array 
-/* .................................Find Method................................
-The find method is a built-in JavaScript array method that allows you to search for an element in an array based on a condition. It returns the first element in the array that satisfies the provided condition (callback function). If no elements satisfy the condition, it returns undefined.
-*/
-const numbers = [1,2,5,10,12,24,23];
-const foundMatch = numbers.find((value)=>{
-   return value>10;
-   // find method returns the first matching element
-}) 
+// // find , some methods in array 
+// /* .................................Find Method................................
+// The find method is a built-in JavaScript array method that allows you to search for an element in an array based on a condition. It returns the first element in the array that satisfies the provided condition (callback function). If no elements satisfy the condition, it returns undefined.
+// */
+// const numbers = [1,2,5,10,12,24,23];
+// const foundMatch = numbers.find((value)=>{
+//    return value>10;
+//    // find method returns the first matching element
+// }) 
 
-console.log(foundMatch);
+// console.log(foundMatch);
 
-const objectUsers =[
-    {id:1,name:"Mayur"},
-    {id:1,name:"king"}, // this will not be returned as find returns first matching element
-    {id:2,name:"Amit"},
-    {id:3,name:"Elvish"}
-]
+// const objectUsers =[
+//     {id:1,name:"Mayur"},
+//     {id:1,name:"king"}, // this will not be returned as find returns first matching element
+//     {id:2,name:"Amit"},
+//     {id:3,name:"Elvish"}
+// ]
 
-const getName = objectUsers.find((value)=>{
-    return value.id === 1;
-})
+// const getName = objectUsers.find((value)=>{
+//     return value.id === 1;
+// })
 
-// find which user is a admin 
-// we will use the find method if we just want to know that admin exists , but if you want total number of admins then use filter method
-const users = [
-    { id: 1, name: 'Alice', isAdmin: false },
-    { id: 2, name: 'Bob', isAdmin: true },
-    { id: 3, name: 'Charlie', isAdmin: false },
-  ];
+// // find which user is a admin 
+// // we will use the find method if we just want to know that admin exists , but if you want total number of admins then use filter method
+// const users = [
+//     { id: 1, name: 'Alice', isAdmin: false },
+//     { id: 2, name: 'Bob', isAdmin: true },
+//     { id: 3, name: 'Charlie', isAdmin: false },
+//   ];
 
-  const findAdmin = users.find((value)=>{
-    if(value.isAdmin === true){
-        return value.name
-    }
-    return null;
-})
-  console.log("The Admin Is",findAdmin)
+//   const findAdmin = users.find((value)=>{
+//     if(value.isAdmin === true){
+//         return value.name
+//     }
+//     return null;
+// })
+//   console.log("The Admin Is",findAdmin)
 
   // Example to be practised here 
   // when we want to store the element which matched the id in an array  
@@ -119,15 +120,26 @@ const users = [
     { id: 2, name: "User", displayName: "Standard User" },
     { id: 3, name: "Manager", displayName: "Project Manager" },
     { id: 4, name: "Guest", displayName: "Guest User" },
+    { id: 5, name: "Manager", displayName: "Project Manager" },
+    { id: 6, name: "Manager", displayName: "Project Manager" },
+    { id: 7, name: "Manager", displayName: "Project Manager" },
   ];
 
   // Selected roles in selectedItems
 const selectedItems = [
-  { id: 2 },
-  { id: 4 },
+  { id: 2, name: "User", displayName: "Standard User" },
+  { id: 3, name: "Guest", displayName: "Guest User" },
+  { id: 4, name: "Manager", displayName: "Project Manager" },
+  { id: 5, name: "Manager", displayName: "Project Manager" },
+  { id: 6, name: "Manager", displayName: "Project Manager" },
+  { id: 7, name: "Manager", displayName: "Project Manager" },
 ];
 
-const dropDownListApi = [];
+const deSelectedRoles = [
+  { id: 2, name: "User", displayName: "Standard User" },
+  { id: 4, name: "Guest", displayName: "Guest User" },
+  { id: 7, name: "Manager", displayName: "Project Manager" },
+];
 
 selectedItems.forEach((items)=>{
   const matchedElement = dropdownList.find(val => val.id === items.id);
@@ -140,9 +152,15 @@ selectedItems.forEach((items)=>{
   }
 })
 
-console.log("Your Selected Roles Are",dropDownListApi);
 
-console.log(getName);
+console.log("The dropdownlistapi is ",dropDownListApi)
+const removedSelection = new Set(deSelectedRoles.map(x=>x.id));
+dropDownListApi = dropDownListApi.filter(role=> !removedSelection.has(role.id))
+// dropDownListApi = dropDownListApi.filter((item)=>deSelectedRoles.some(role => role.id !== item.id))
+// dropDownListApi = dropDownListApi.filter((item)=>deSelectedRoles.every(role => role.id !== item.id))
+
+console.log("The dropdownlistapi is ",dropDownListApi)
+// console.log(getName);
 
 // chaining of arrays 
 const num1 = [10,20,30,40,50,60];
