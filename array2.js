@@ -347,3 +347,273 @@ const prValues = uniqueProjects.forEach((mov)=>{
 })
 }
 uniqueProjects(company);
+
+const uniqueValue = [
+  { id: 1, name: 'Alice' },
+  { id: 2, name: 'Bob' },
+  { id: 1, name: 'Charlie' },
+  { id: 3, name: 'David' },
+  { id: 2, name: 'Eve' },
+];
+
+const seenID = new Set();
+const usersUnique = uniqueValue.filter((val)=>{
+  const uniquePeople = !seenID.has(val.id);
+  console.log("Unique People are",uniquePeople)
+  seenID.add(val.id);
+  return uniquePeople;
+}) 
+
+console.log(usersUnique);
+
+let email = "john.doe@gmail.com";
+
+// extract domain names from the array 
+const extractNames = email.split('@')[1];
+console.log(extractNames)
+
+let csvData = "name,age,city\nAlice,25,New York\nBob,30,Los Angeles\nCharlie,22,Chicago";
+
+const splitCsvObject = csvData.split('\n').map(x=> {
+  return {
+    name : x,
+    age : x,
+    city : x
+  }
+})
+console.log(splitCsvObject)
+
+let str = "  JavaScript   is   awesome!   ";
+const objTrim = str.trim().split(/\s+/).join(" ");
+console.log(objTrim)
+
+let numbers = [9, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+const fomattedNumber =  `(${numbers.slice(0,3).join("")}) ${numbers.slice(3,6).join("")}-${numbers.slice(6).join("")}`;
+console.log(fomattedNumber)
+
+let sentence = "JavaScript is powerful";
+const reverseWord = sentence.split(" ").reverse().join(" ");
+console.log(reverseWord)
+
+let data = ["Alice", "Bob", "Charlie", "David"];
+const goString = data.join(" ");
+console.log(goString)
+
+
+let messyStr = "  JavaScript   is    awesome!  ";
+const removeSpaces = messyStr.trim().split(/\s+/).join(" ")
+console.log(removeSpaces)
+
+let cardNumber = "1234-5678-9012-3456";
+// mask the credit card number here 
+const maskedData = cardNumber.split("-").map((ele,index)=> index< 3 ? '****' : ele).join(" ")
+console.log(maskedData)
+
+let words = "apple banana apple orange banana apple";
+// find most frequently occuring word 
+
+function findMostOccuringWord(sentence){
+ let words = sentence.split(" ");
+ let setWords = {};
+ for (const word of words) {
+   setWords[word] = (setWords[word] || 0) + 1;
+ }
+ let maxCount = 0;
+ let mostOccuringWord = "";
+ for (const wordCount in  setWords) {
+    if(setWords[wordCount]>maxCount) {
+        maxCount = setWords[wordCount];
+        mostOccuringWord = wordCount
+    }
+  }
+  return maxCount // most occuring word frequency
+}
+
+console.log(findMostOccuringWord(words));
+
+let dateArray = [2025, 2, 19];
+let updatedDate = dateArray.join("/")
+console.log(updatedDate)
+
+
+let sentence1 = "apple banana apple orange banana apple";
+// challenge --> remove duplicate words from string 
+function duplicate(sentence1){
+   let sentence = sentence1.split(" ");
+   const uniqueFruits = [...new Set(sentence)].join(" ");
+   return uniqueFruits
+}
+
+
+console.log(duplicate(sentence1));
+
+
+let longestWord = "I love programming in JavaScript";
+// find the longest word from the sentence 
+
+function findLongestStringWord(word) {
+    let long = word.split(" ");
+    let longestWord = long[0];
+    for (const word of long) {
+      if(word.length>longestWord.length) {
+         longestWord = word;
+      }
+    }
+    return longestWord;
+}
+
+console.log(findLongestStringWord(longestWord));
+
+let strVowels = "JavaScript is amazing";
+function countVowels(strVowels){
+  //  let letterArray = strVowels.split("");
+  //  let count = 0;
+  //  for (const vow of letterArray) {
+  //    if(vow === 'a' || vow === 'e' || vow === 'i' || vow === 'o' || vow === 'u') {
+  //      count++;
+  //    }
+  //  }
+  //  return count
+  // ABove solution is not a optimised appraoch it is not a good approach 
+
+   let count = 0;
+   let vowels = new Set(['a','e','i','o','u'])
+   for (const word of strVowels.toLowerCase()) {
+     if(vowels.has(word)) {
+       count++;
+     }
+   }
+   return count;
+}
+
+console.log(countVowels(strVowels))
+
+let strRepeat = "aabbccdd";
+// find first non repeating character 
+function repeat(strRepeat){
+     const wordObj = {};
+     for (const char of strRepeat) {
+      wordObj[char] = (wordObj[char] || 0) + 1;
+     }
+     for (const char of strRepeat) {
+       if(wordObj[char] === 1) {
+         return char
+       }
+     }
+      return `No Unique characters found`
+}
+console.log(repeat(strRepeat))
+
+
+let sentence2 = "hello world! welcome to javascript";
+// capitalize first letter of each word
+function capitalize(sentence2){
+  const splitSentence = sentence2.split(" ");
+  let capWords = splitSentence.map((word)=>{
+    let firstChar = word.charAt(0).toUpperCase();
+    let remWords = word.slice(1);
+    return firstChar.concat(remWords)
+  })
+  return capWords.join(" ");
+}
+
+console.log(capitalize(sentence2));
+
+let reapeat = "javascript";
+function occuring(strRepeat){
+  const charObj = {};
+  for (const char of strRepeat) {
+    charObj[char] = (charObj[char] || 0) + 1;
+  }
+  let maxcount = 0;
+  let mostOccuring = '';
+  for (const word in charObj) {
+     if(charObj[word]>maxcount) {
+       maxcount = charObj[word];
+       mostOccuring = word
+     }
+  }
+  return mostOccuring
+}
+console.log(occuring(reapeat));
+
+let sentences = "JavaScript is an amazing language";
+// function to calculate number of words in a sentence 
+function countWords(sentences){
+  const word = sentences.split(" ");
+  if(word.length>0) {
+    return word.length
+  }
+}
+
+console.log(countWords(sentences));
+
+let sentencess = "JavaScript is powerful";
+let letter = "p";
+
+// find the word that contains the given letter 
+function findWord(sentencess,letter){
+  const word = sentencess.split(" ");
+  // let knowWord = getWord.map((char)=>{
+  //   if(char.includes(letter)) {
+  //      return char;
+  //   }
+  // }).filter(Boolean);
+  // return knowWord
+
+  // The above is not an optimised solution 
+  const matchingWord = word.filter(char=>char.includes(letter))
+  return matchingWord
+}
+console.log(findWord(sentencess,letter)); 
+// correct soln but not optimised approach 
+
+
+
+
+let wantSentence = "hello WORLD, HOW are YOU?";
+function titleCase(wantSentence){
+// let wordArray = wantSentence.split(" ");
+// let formatSentence = wordArray.map((word)=>{
+//    let firstChar = word.charAt(0).toUpperCase();
+//    let remChar = word.slice(1).toLowerCase();
+//    return firstChar.concat(remChar);
+// })
+// return formatSentence.join(" ");
+
+// The above solution is correct but not an optimised approach 
+// The below is the optimised approach 
+return wantSentence.split(" ").map((word)=>{
+  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+}).join(" ");
+}
+
+console.log(titleCase(wantSentence))
+
+
+let sentenceReverse = "JavaScript is awesome";
+//Write a function that reverses each word individually but keeps their order.
+
+function reverseString(sentence){
+return sentence.split(" ")
+       .map(word=>word.split("").reverse().join(""))
+       .join(" ");
+}
+
+console.log(reverseString(sentenceReverse));
+
+ let frequentWord = "apple banana apple orange banana apple orange banana orange mango";
+//  find the 2nd most frequent word 
+function secondFrequentWord(frequentWord){
+  let words = frequentWord.split(" ");
+ const fruits = {};
+ for (const fruit of words) {
+   fruits[fruit] = (fruits[fruit] || 0 ) + 1;
+ }
+ let fruitArray = Object.entries(fruits).sort((a,b)=>b[1]-a[1])
+ return fruitArray[1][0]
+}
+
+console.log(secondFrequentWord(frequentWord))
+
+
