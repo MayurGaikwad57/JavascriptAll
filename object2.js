@@ -21,9 +21,8 @@ const Obj = {
 
 // Accessibility of Objects
 // Two possible methods of accsessing used based on needs
-// console.log(Obj["UserName"]["fullName"])
+// console.log("Object Access Method",Obj["UserName"]["fullName"]["name"]);
 // console.log(Obj.UserName.fullName)
-
 // merging or combining two objects
 
 const new1 = { 1: "a", 2: "b" }
