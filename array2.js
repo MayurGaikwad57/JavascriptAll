@@ -430,7 +430,6 @@ function findMostOccuringWord(sentence){
 }
 
 console.log(findMostOccuringWord(words));
-
 let dateArray = [2025, 2, 19];
 let updatedDate = dateArray.join("/")
 console.log(updatedDate)
@@ -615,5 +614,30 @@ function secondFrequentWord(frequentWord){
 }
 
 console.log(secondFrequentWord(frequentWord))
+
+const startDate = "2024-03-01";  // (Friday)
+const endDate = "2024-03-10"; 
+function dateDays(startDate,endDate) {
+  const startingDate = new Date(startDate);
+  const endingDate = new Date(endDate);
+  //first we will calculate the number of days 
+  const numberOfDays = Math.floor((endingDate - startingDate) / (1000 * 60 * 60 * 24));
+  console.log(numberOfDays)
+  const weeks = Math.floor(numberOfDays/7);
+  let weekends = weeks*2;
+  // Now we need to calculate the remaining number of days 
+  let remainingDays = numberOfDays%7;
+  let day = startingDate.getDay();
+  for(let i = 0 ; i< remainingDays;i++) {
+    if(day === 6 || day === 0) {
+      weekends++;
+    }
+    day = (day+1)%7
+  }
+  console.log(weekends);
+}
+
+
+dateDays("2024-03-01","2024-03-20");
 
 
