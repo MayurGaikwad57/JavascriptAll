@@ -98,3 +98,111 @@ let addingCartPrice = shoppingCart.reduce((hold,cart)=>{
         return hold+cart.price
 },hold)
 console.log(addingCartPrice); 
+
+// Finding max value from array
+let numArray = [1,5,9,4,11,6];
+function maxValue(arr){
+  return arr.reduce((acc,curr)=>{
+     return acc>curr ? acc : curr 
+  })
+}
+
+console.log(maxValue(numArray));
+
+
+// flatten nested array using reduce without support of flat
+const nestedArray = [[1, 2], [3, 4], [5, 6]];
+function flatArray(arr){
+const flattenArray = arr.reduce((acc,val)=>{
+  return acc.concat(val);
+},[]);
+return flattenArray
+}
+
+console.log(flatArray(nestedArray));
+
+
+const people = [
+    { name: "Alice", age: 25 },
+    { name: "Bob", age: 30 },
+    { name: "Charlie", age: 25 },
+    { name: "David", age: 30 },
+  ];
+
+function pushKey(peopleArray){
+   const keyVal = peopleArray.reduce((acc,val)=>{
+     acc[val.age] = acc[val.age] || [];
+     acc[val.age].push(val);
+     return acc
+   },{})
+   return keyVal;
+}
+
+console.log(pushKey(people));
+
+const numbers = [1, 2, 3, 4];
+// create a custom map using reduce 
+function customMap(numArray){
+  return numArray.reduce((acc,val)=>{
+     acc.push(val*val) // pushing elements into the array 
+     return acc;
+  },[])
+}
+console.log(customMap(numbers));
+
+
+const numbersEven = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// finding sum of all even numbers from array
+function sumEven(sum){
+ const evenSum = sum.reduce((acc,val)=>{
+    if(val%2===0) {
+       acc = acc + val;
+    } 
+    return acc;
+ },0)
+ return evenSum;
+}
+
+console.log(sumEven(numbersEven));
+
+const words = ["apple", "banana", "watermelon", "cherry", "strawberry"];
+// find longest word in array of strings
+function longestWord(word){
+    // let longestWord = '';
+  const longest = word.reduce((acc,val)=>{
+    if(val.length>acc.length) {
+        acc = val;
+    }
+    return acc
+  },word[0])
+  return longest
+}
+
+console.log(longestWord(words));
+
+const users = [
+    { id: 1, name: "Alice" },
+    { id: 2, name: "Bob" },
+    { id: 3, name: "Charlie" }
+  ];
+  // Expected output: { 1: "Alice", 2: "Bob", 3: "Charlie" }
+function keyVal(user){
+  return user.reduce((acc,curr)=>{
+    for (const val in acc) {
+        acc[curr.id] = acc[curr.id] || "";
+    }
+    return acc;
+  },{})
+}
+
+console.log(keyVal(users))
+
+const number = [3, 7, 2, 9, 5];
+//  find max number using reduce 
+function maxNum(number){
+ return number.reduce((acc,val)=>{
+    return acc>val ? acc : val
+ })
+}
+
+console.log(maxNum(number))

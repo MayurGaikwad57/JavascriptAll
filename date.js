@@ -143,7 +143,8 @@ function weekends(date1 , date2) {
  let startDate = new Date(date1);
  let endDate = new Date(date2);
  let count = 0;
-
+// Iterating over date objects is not recommended 
+// Also the above one is not a recommended approach as we have to traverse days individually
  while(startDate<=endDate) {
     if(startDate.getDay() === 0 || startDate.getDay() === 6) {
         count++;
