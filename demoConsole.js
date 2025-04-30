@@ -1,0 +1,1 @@
+console.log("Squah part 1");
